@@ -2,6 +2,7 @@
 html {
 	box-sizing: border-box;
 	font-size: 16px;
+	scroll-behavior: smooth;
 }
 
 *,
@@ -210,7 +211,7 @@ nav {
 	outline: 3px solid var(--verde);
 }
 
-.project {
+.project-img {
 	border-radius: 5px;
 	border: 2px solid #000;
 	display: inline-block;
@@ -286,7 +287,8 @@ input:focus {
 	padding: 8px;
 }
 
-.send-button {
+.send-button,
+.modal-button {
 	align-items: center;
 	background-color: var(--verde);
 	border-radius: 5px;
@@ -299,10 +301,18 @@ input:focus {
 	width: 150px;
 	margin-left: auto;
 	font-size: 16px;
+	cursor: pointer;
 }
 
-.send-button:focus {
+.send-button:focus,
+.modal-button:focus {
+	border: 5px solid var(--gris-oscuro);
 	outline: 3px solid var(--verde);
+}
+
+#name-error {
+	color: var(--blanco);
+	font-family: var(--secondary-font);
 }
 
 .notification {
@@ -310,7 +320,7 @@ input:focus {
 	background-color: var(--verde);
 	border-radius: 5px;
 	box-shadow: 8px 16px 32px 0px var(--shadow);
-	color: var(--blanco);
+	color: var(--gris-oscuro);
 	display: none;
 	font-family: var(--secondary-font);
 	height: 50px;
@@ -331,6 +341,10 @@ input:focus {
 	width: 100vw;
 }
 
+#modal-header {
+	outline: 3px solid var(--verde);
+}
+
 .modal {
 	align-items: center;
 	background-color: var(--gris-oscuro);
@@ -338,18 +352,38 @@ input:focus {
 	border: 2px solid #000;
 	display: flex;
 	flex-direction: column;
-	height: 700px;
+	height: auto;
 	justify-content: center;
 	position: fixed;
-	top: 15%;
-	width: 700px;
+	top: 5%;
+	width: 600px;
+	padding: 32px;
+	max-height: 90vh;
+	overflow-y: auto;
+}
+
+.modal .header {
+	font-size: 24px;
+	margin-bottom: 16px;
+	text-align: center;
 }
 
 .modal-project-image {
-	background: center / cover no-repeat url(./images/project1.png);
 	border-radius: 5px;
 	border: 2px solid #000;
-	height: 400px;
+	height: auto;
+	max-height: 400px;
 	margin: 16px;
-	width: 550px;
+	width: 100%;
+	object-fit: contain;
+}
+
+.required {
+	color: red;
+	font-weight: bold;
+}
+
+/* Pour éviter que le header ne cache le contenu */
+section[id], footer[id] {
+	scroll-margin-top: 100px;
 }

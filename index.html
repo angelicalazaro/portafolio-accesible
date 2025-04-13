@@ -19,15 +19,15 @@
     <h2 class="subtitle">Développeuse Full Stack</h2>
     <nav>
       <ul class="navigation">
-        <li class="nav-item"><a href="/acerca-de">À propos</a></li>
-        <li class="nav-item"><a href="/mis-proyectos">Mes projets</a></li>
-        <li class="nav-item"><a href="/contact">Contact</a></li>
+        <li class="nav-item"><a href="#a-propos">À propos</a></li>
+        <li class="nav-item"><a href="#mes-projets">Mes projets</a></li>
+        <li class="nav-item"><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
   <main id="main">
-<section>
-  <h2 class="header">À propos</h2>
+    <section id="a-propos">
+      <h2 class="header">À propos</h2>
       <p class="intro">
       Bonjour ! Je suis Angélica, je suis Colombienne, j'adore les chats et aussi créer de jolies choses sur le web. Après avoir étudié l'anthropologie, la cuisine et la pâtisserie je me penche vers un univers aussi créatif, le développement web. Je rêve d'un monde inclusif où tout le monde participe. Ici tu peux connaître certains de mes projets, ainsi que me contacter et parler de technologie, d'accessibilité, d'art ou de chats. </p>
       <ul class="social-media">
@@ -55,37 +55,48 @@
       </ul>
     </section>
 
-    <section>
+    <section id="mes-projets">
       <h2 class="header">Mes projets</h2>
     <div class="carousel">
       <button class="arrow arrow-left" aria-label="bouton précedent"></button>
       <div class="window">
         <ul class="project-container">
-          <li class="project1-container"><button class="project1"><img src="images/labs.png" class="project" alt="Mon premier projet, LABS Society, un agence de communication fictive"/></button></li>
-          <li class="project2-container"><button class="project2"><img src="images/perilovers.png" class="project" alt="Le projet périlovers, trouver l'amour dans le Périgord"/></button></li>
-          <li class="project3-container"><button class="project3"><img src="images/indigo.png" class="project" alt="Indigo, une marque Barcelonaise qui donne du style à vos animaux de compagnie"/></button></li>
-          <li  class="project4-container"aria-hidden="true"><button class="project4" tabindex="-1"><img src="images/weart.png" class="project" alt="Le projet WeArt qui met en valeur les oeuvres d'art du Musée Metropolitan de New York"/></button></li>
-          <li class="project5-container"aria-hidden="true"><button class="project5" tabindex="-1"><img src="images/street-art-hunter.png" class="project" alt="Street Art Hunter, le jeu à la chasse d'oeuvres de street art dans la ville de Lyon"/></button></li>
+          <li class="project1-container"><button class="project1 project"><img src="images/labs.png" class="project-img" alt="Mon premier projet, LABS Society, un agence de communication fictive"/></button></li>
+          <li class="project2-container"><button class="project2 project"><img src="images/perilovers.png" class="project-img" alt="Le projet périlovers, trouver l'amour dans le Périgord"/></button></li>
+          <li class="project3-container"><button class="project3 project"><img src="images/indigo.png" class="project-img" alt="Indigo, une marque Barcelonaise qui donne du style à vos animaux de compagnie"/></button></li>
+          <li  class="project4-container"aria-hidden="true"><button class="project4 project" tabindex="-1"><img src="images/weart.png" class="project-img" alt="Le projet WeArt qui met en valeur les oeuvres d'art du Musée Metropolitan de New York"/></button></li>
+          <li class="project5-container"aria-hidden="true"><button class="project5 project" tabindex="-1"><img src="images/street-art-hunter.png" class="project-img" alt="Street Art Hunter, le jeu à la chasse d'oeuvres de street art dans la ville de Lyon"/></button></li>
         </ul>
       </div>
       <button class="arrow arrow-right" aria-label="bouton suivant"></button>
     </div>
   </section>
 </main>
-    <footer class="contact-section">
-      <h2 class="header">Contact</h2>
-      <form class="form-container">
-       <p class="form-label">Prénom</p> <input type="text" aria-label="prénom"/> <br />
-       <p class="form-label">Email</p> <input type="text" aria-label="email"/> <br />
-        <div class="message-input">Message<input type="text" aria-label="Votre message"/> <br /></div>
-        <button class="send-button">Envoyer</button>
+    <footer class="contact-section" role="contentinfo" aria-label="Section contact" id="contact">
+      <h2 class="header" role="heading" aria-level="2">Contact</h2>
+      <p class="intro" role="complementary" aria-label="Instructions pour le formulaire de contact">Pour me contacter, vous pouvez m'envoyer un message dessus : </p>
+      <form class="form-container" role="form" aria-label="Formulaire de contact" action="https://formspree.io/f/mjkylzkj" method="POST">
+       <label class="form-label">Prénom <span class="required">*</span></label> 
+       <input type="text" aria-label="prénom" id="name" name="name" required aria-required="true"/>
+       <span id="name-error" aria-live="assertive"></span>
+       <br />
+       <label class="form-label">Email <span class="required">*</span></label> 
+       <input type="email" aria-label="email" id="email" name="email" required aria-required="true"/>
+       <span id="email-error" aria-live="assertive"></span>
+       <br />
+       <label class="message-input">Message <span class="required">*</span>
+       <textarea aria-label="Votre message" id="message" name="message" required aria-required="true"></textarea>
+       <span id="message-error" aria-live="assertive"></span>
+       <br /></label>
+        <button class="send-button" type="submit">Envoyer</button>
       </form>
     </footer>
-    <div class="notification">Le formulaire a été envoyé avec succès</div>
+    <div class="notification" aria-live="assertive"></div>
     <div class="modal-container">
       <div class="modal">
-        Exemple de projet
-        <div class="modal-project-image"></div>
+        <h2 class="header" id="modal-header" tabindex="0">Exemple de projet</h2>
+        <img src="" alt="" class="modal-project-image" />
+        <button class="modal-button">Fermer</button>
       </div>
     </div>
 
